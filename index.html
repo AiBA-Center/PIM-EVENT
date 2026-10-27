@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบกิจกรรมและประเมินผล · PIM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1f7a4d;
+      --green-dark: #155c39;
+      --green-pale: #e8f3ec;
+      --ink: #1c1f1d;
+      --ink-soft: #5e6663;
+      --line: #dfe5e1;
+      --paper: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Prompt', sans-serif; font-weight: 300; color: var(--ink);
+      background: var(--paper); min-height: 100vh; display: flex; flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 32px; border-bottom: 1px solid var(--line);
+    }
+    .topbar img { height: 44px; width: auto; display: block; }
+    .topbar span { font-size: 13px; color: var(--ink-soft); }
+
+    main { flex: 1; width: 100%; max-width: 960px; margin: 0 auto; padding: 72px 32px 64px; }
+
+    h1 { font-size: 34px; font-weight: 500; line-height: 1.3; color: var(--ink); }
+    .lead { margin-top: 12px; font-size: 16px; color: var(--ink-soft); line-height: 1.7; max-width: 44ch; }
+
+    .choices { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .choice {
+      display: block; padding: 28px 28px 24px; border: 1px solid var(--line); border-radius: 10px;
+      background: #fff; transition: border-color .15s, background-color .15s;
+    }
+    .choice:hover, .choice:focus-visible { border-color: var(--green); background: var(--green-pale); outline: none; }
+    .choice .who { font-size: 13px; color: var(--green); font-weight: 500; }
+    .choice h2 { margin-top: 10px; font-size: 22px; font-weight: 500; line-height: 1.35; }
+    .choice p { margin-top: 10px; font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; }
+    .choice .go { margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--green-dark); }
+    .choice .go svg { transition: transform .15s; }
+    .choice:hover .go svg { transform: translateX(3px); }
+
+    footer { padding: 20px 32px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft); }
+
+    @media (max-width: 680px) {
+      .topbar, footer { padding-left: 20px; padding-right: 20px; }
+      main { padding: 48px 20px; }
+      h1 { font-size: 27px; }
+      .choices { grid-template-columns: 1fr; margin-top: 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .choice, .choice .go svg { transition: none; } }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <img src="https://lh3.googleusercontent.com/d/1tiQ8h_rR-acynWOdfR2GbCFWNyiR_Rfn" alt="สถาบันการจัดการปัญญาภิวัฒน์" referrerpolicy="no-referrer">
+    <span>ระบบกิจกรรมและประเมินผล</span>
+  </div>
+
+  <main>
+    <h1>กิจกรรมแนะแนวและแบบประเมิน<br>สำหรับทุกคณะ</h1>
+    <p class="lead">เลือกส่วนที่ต้องการใช้งาน นักเรียนเข้ากรอกฟอร์มผ่าน QR Code ที่ได้จากการสร้างกิจกรรม</p>
+
+    <div class="choices">
+      <a class="choice" id="linkAdmin" href="#" target="_blank" rel="noopener">
+        <div class="who">สำหรับผู้จัดกิจกรรม</div>
+        <h2>สร้างกิจกรรมและ QR Code</h2>
+        <p>ตั้งค่ากิจกรรมใหม่ เลือกคณะและสาขาที่จัด Workshop แล้วรับ QR Code สำหรับรับสมัครและประเมินผล</p>
+        <span class="go">เปิดหน้าสร้างกิจกรรม <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="choice" id="linkDashboard" href="#" target="_blank" rel="noopener">
+        <div class="who">สำหรับตัวแทนคณะ</div>
+        <h2>ติดตามข้อมูล</h2>
+        <p>ดูจำนวนผู้สมัคร ผลประเมิน และความสนใจเข้าศึกษาต่อของคณะ ต้องเข้าสู่ระบบก่อนใช้งาน</p>
+        <span class="go">เข้าสู่ระบบ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </main>
+
+  <footer>สถาบันการจัดการปัญญาภิวัฒน์</footer>
+
+<script>
+  // URL ของ Apps Script ที่ Deploy แล้ว แก้ที่นี่ที่เดียว
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznwJNPGAwVLMs32Nsf7eVgxSttlODQSITsc7GaOGn3POJTpPldqO5PLus_9yjsVGRz6A/exec";
+  document.getElementById('linkAdmin').href = APPS_SCRIPT_URL;
+  document.getElementById('linkDashboard').href = APPS_SCRIPT_URL + "?page=dashboard";
+</script>
+</body>
+</html>
